@@ -1,0 +1,75 @@
+version: '3'
+
+services:
+  base:
+    build:
+      dockerfile: ./base.Dockerfile
+    image: cryat/base:1.0.3
+    networks:
+      - cryat-network
+
+  api-gateway:
+    build:
+      dockerfile: ./microservice/api.Dockerfile
+    image: cryat/api:1.0.3
+    ports:
+      - "8000:8000"
+    networks:
+      - cryat-network
+    depends_on:
+      - base
+
+  user-manager:
+    build:
+      dockerfile: ./microservice/user_manager.Dockerfile
+    image: cryat/user_manager:1.0.3
+    ports:
+      - "8003:8000"
+    networks:
+      - cryat-network
+    depends_on:
+      - api-gateway
+      
+  admin-panel:
+    build:
+      dockerfile: ./microservice/admin.Dockerfile
+    image: cryat/admin:1.0.3
+    ports:
+      - "8001:8000"
+    networks:
+      - cryat-network
+    depends_on:
+      - api-gateway
+
+  transaction:
+    build:
+      dockerfile: ./microservice/transaction.Dockerfile
+    image: cryat/transaction:1.0.3
+    ports:
+      - "8002:8000"
+    networks:
+      - cryat-network
+    depends_on:
+      - api-gateway
+
+  logger:
+    build:
+      dockerfile: ./microservice/logger.Dockerfile
+    image: cryat/logger:1.0.3
+    ports:
+      - "8004:8000"
+    networks:
+      - cryat-network
+
+  notification:
+    build:
+      dockerfile: ./microservice/notification.Dockerfile
+    image: cryat/notification:1.0.3
+    ports:
+      - "8005:8000"
+    networks:
+      - cryat-network
+
+networks:
+  cryat-network:
+    driver: bridge

@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "cryat"
+version = "1.0.0"
+description = ""
+authors = ["l"]
+package-mode = false
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+asyncio = ">=3.4.3,<4.0.0"
+django = "4.2.1"
+celery = ">=5.4.0,<6.0.0"
+confluent-kafka = ">=2.8.0,<3.0.0"
+djangorestframework = ">=3.15.2,<4.0.0"
+psycopg2-binary = "^2.9.10"
+redis = ">=5.2.1,<6.0.0"
+django-cors-headers = ">=4.7.0,<5.0.0"
+swagger-ui = ">=0.1.2,<0.2.0"
+requests = "^2.32.3"
+gunicorn = "^23.0.0"
+drf-yasg = "^1.21.9"
+pytest-django = "^4.10.0"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.2"
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
+
