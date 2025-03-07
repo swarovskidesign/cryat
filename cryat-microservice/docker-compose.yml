@@ -8,7 +8,7 @@ services:
     networks:
       - cryat-network
 
-  api-gateway:
+  api-gateway: # k8s = docker-compose up --scale api = 3 для нодов
     build:
       dockerfile: ./microservice/api.Dockerfile
     image: cryat/api:1.0.3
@@ -69,6 +69,71 @@ services:
       - "8005:8000"
     networks:
       - cryat-network
+
+    postgresql_active: # + pgbouncer + apache port 8080
+      image: postgres:16.8
+      ports:
+         - "7999:7999"
+      container_name: database_main
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: qqq
+        POSTGRES_DB: 
+      volumes:
+        - /path/to/postgresql-persistence:/database/postgresql
+      network:
+        - cryat-network
+      depends_on:
+        - base
+
+    # postgresql_replicated: # + pgbouncer + apache port 8080
+    #   image: postgres:16.8
+    #   ports:
+    #      - "7998:7998"
+    #   container_name: database_additional
+    #   environment:
+    #     POSTGRES_USER: postgres
+    #     POSTGRES_PASSWORD: qqq
+    #     POSTGRES_DB: 
+    #   volumes:
+    #     - /path/to/postgresql-persistence:/database/postgresql
+    #   network:
+    #     - cryat-network
+    #   depends_on:
+    #     - base
+
+    web:
+      image: nginx
+      volumes:
+        - ./templates:/etc/nginx/templates
+      ports:
+        - "80:80" # or 443 for https server
+      environment:
+        - NGINX_HOST={hostname}
+        - NGINX_PORT=80
+      network:
+         - cryat-network
+
+    # web:
+    #   image: nginx
+    #   volumes:
+    #     - ./templates:/etc/nginx/templates
+    #   ports:
+    #     - "443:443"
+    #   environment:
+    #     - NGINX_HOST={hostname}
+    #     - NGINX_PORT=443
+    #   network:
+    #     - cryat-network
+
+    kafka:
+      image: bitnami/kafka:latest
+      ports:
+         - "7997:7997"
+      depends_on:
+         - base
+      network:
+         - cryat-network
 
 networks:
   cryat-network:

@@ -1,2 +1,3 @@
-!cryat-microservice/.dockerignore
-!cryat-microservice/server.conf
+__pycache__/
+**/db.sqlite3
+db.sqlite3
