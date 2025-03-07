@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'testapp/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'test1/img/logosite.jpg' %}">
+    <title>CRYAT</title>
+</head>
+<body>
+
+    <div class="main_page">
+
+        <div class="footer">
+
+            <div class="footer_first">
+
+                <a href=""><img src="{% static 'testapp/img/logo.png' %}"></a>
+
+            </div>
+
+            <div class="footer_second">
+
+                <a href="{% url 'feedback' %}">
+                    <p><strong>Личный кабинет</strong></p>
+                    <img src="{% static 'testapp/img/profile.png' %}">
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="main_info">
+            <div class="modalwindow">
+
+                <div class="text_modal_window">
+                    <p>Как <strong>стать</strong> клиентом и <strong>открыть</strong> продукты банка?</p>
+                </div>
+
+                <div class="step_signin">
+                    <div class="first_step">
+                        <h1>1</h1>
+                        <p><strong>Пройти</strong> регистрацию</p>
+                    </div>
+
+                    <div class="second_step">
+                        <h1>2</h1>
+                        <p><strong>Подтвердить</strong> данные</p>
+                        
+                    </div>
+
+                    <div class="three_step">
+                        <h1>3</h1>
+                        <p><strong>Открыть</strong> продукты банка</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_el">
+
+            <div class="cookie">
+                <p>Продолжая пользоваться сайтом, я соглашаюсь с условием обработки файлов cookie</p>
+                <button>Понятно</button>
+            </div>
+
+            <div class="chat">
+                <img src="{% static 'testapp/img/chat.png' %}">
+            </div>
+
+        </div>
+
+    </div>
+
+    
+</body>
+</html>

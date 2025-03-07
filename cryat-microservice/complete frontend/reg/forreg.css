@@ -1,0 +1,106 @@
+* {
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #363636;
+    color: rgb(224, 224, 224);
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5% 1.5% 0.5% 1.5%;
+    background-color: #2D2D2D;
+    border: 1px solid #BA2B2B;
+    border-radius: 35px;
+    height: 100px;
+}
+
+.left img {
+    width: 160px;
+    height: 50px;
+}
+
+.right img {
+    width: 50px;
+    height: 50px;
+}
+
+.authhelp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 70vh; 
+    border-radius: 10px;
+    text-align: center;
+    background-color: #2D2D2D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    background-color: #363636;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.nickname {
+    display: flex;
+    flex-direction: row;
+    background-color: #363636;
+    padding: 5px;
+    border: 1px solid #BA2B2B;
+}
+
+.password {
+    display: flex;
+    flex-direction: row;
+    background-color: #363636;
+    padding: 5px;
+    border: 1px solid #BA2B2B;
+}
+
+.repeat_password {
+    display: flex;
+    flex-direction: row;
+    background-color: #363636;
+    padding: 5px;
+    border: 1px solid #BA2B2B;
+}
+
+.btn {
+    background: none; 
+    border: none; 
+    padding: 0; 
+    cursor: pointer;
+    color: white;
+}

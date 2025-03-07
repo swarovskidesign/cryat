@@ -1,0 +1,166 @@
+* {
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #363636;
+    color: rgb(224, 224, 224);
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.main_page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5% 1.5% 0.5% 1.5%;
+    background-color: #2D2D2D;
+    border: 1px solid #BA2B2B;
+    border-radius: 35px;
+    height: 100px;
+}
+
+.footer_first {
+    display: flex;
+    align-items: center;
+    width: 45%;
+    justify-content: space-between;
+    padding: 0.5% 1% 0.5% 1%;
+    font-size: 26px;
+}
+
+.footer_first img {
+    width: 160px;
+    height: 50px;
+}
+
+.footer_first p:hover {
+    background-color: #242424;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.footer_second a{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 22px;
+    text-decoration: none;
+    color: rgb(224, 224, 224);
+}
+
+.footer_second img {
+    width: 75px;
+    height: 70px;
+}
+
+.footer_second:hover {
+    background-color: #272727;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.main_info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.modalwindow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 25px;
+    padding: 2% 4% 2% 4%;
+    background-color: #2D2D2D;
+    gap: 40px;
+    width: 100%;
+    border: 1px solid #BA2B2B;
+}
+
+.text_modal_window {
+    font-size: 28px;
+}
+
+.step_signin {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+    font-size: 26px;
+    
+}
+
+.first_step, .second_step, .three_step {
+    background-color: #363636;
+    padding: 1% 1% 2% 2%;
+    border-radius: 20px;
+}
+
+.first_step h1, .second_step h1, .three_step h1{
+    font-size: 36px;
+}
+
+.bottom_el {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.cookie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2D2D2D;
+    font-size: 20px;
+    gap: 50px;
+    padding: 0% 2% 0% 2%;
+    border-radius: 20px;
+}
+
+.cookie button {
+    background-color: #363636;
+    color: rgb(224, 224, 224);
+    padding: 1px 2px 2px 1px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.chat {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #363636;
+    border-radius: 50px;
+    border: 1px solid #BA2B2B;
+    padding: 5px;
+}
+
+.bottom_el img {
+    width: 60px;
+    height: 60px;
+}
