@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'cryat_api',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +82,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "postgres",
+#         "USER": "postgres",
+#         "PASSWORD": "qqq",
+#         "HOST": "127.0.0.1",
+#         "PORT": "7998",
+#     }
+# }
 
 
 # Password validation
