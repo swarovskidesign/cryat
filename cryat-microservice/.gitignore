@@ -1,0 +1,2 @@
+!cryat-microservice/.dockerignore
+!cryat-microservice/server.conf
