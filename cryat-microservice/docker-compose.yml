@@ -70,6 +70,64 @@ services:
     networks:
       - cryat-network
 
+  postgresql_active: # + pgbouncer + apache port 8080
+    image: postgres:16.8
+    ports:
+        - "7999:7999"
+    container_name: database_main
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qqq
+      POSTGRES_DB: 
+    volumes:
+      - /path/to/postgresql-persistence:/database/postgresql
+    networks:
+      - cryat-network
+    depends_on:
+      - base
+
+  postgresql_replicated: # + pgbouncer + apache port 8080
+    image: postgres:16.8
+    ports:
+        - "7998:7998"
+    container_name: database_additional
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qqq
+      POSTGRES_DB: 
+    volumes:
+      - /path/to/postgresql-persistence:/database/postgresql
+    networks:
+      - cryat-network
+    depends_on:
+      - base
+
+  web:
+    image: nginx
+    volumes:
+      - ./templates:/etc/nginx/templates
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_HOST=80
+      - NGINX_PORT=80
+    networks:
+        - cryat-network
+
+  # kafka:
+  #   image: 'bitnami/kafka:latest'
+  #   environment:
+  #     - KAFKA_CFG_NODE_ID=0
+  #     - KAFKA_CFG_PROCESS_ROLES=controller,broker
+  #     - KAFKA_CFG_LISTENERS=PLAINTEXT://:7997,CONTROLLER://:7996
+  #     - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+  #     - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:7996
+  #     - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+  #   networks:
+  #     - cryat-network
+  #   depends_on:
+  #     - base
+
 networks:
   cryat-network:
     driver: bridge
