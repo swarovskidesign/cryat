@@ -1,6 +1,18 @@
 from django.urls import path, re_path
-from ../views/views.py import KafkaProxyView, HealthCheckView
+from .views.views import MyDefaultAPIView
 
 urlpatterns = [
-    re_path(r"^(?P<path>.*)$", KafkaProxyView.as_view()),
+    path("lya/", MyDefaultAPIView.as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
+    # path("", .as_view(), name=""),
 ]

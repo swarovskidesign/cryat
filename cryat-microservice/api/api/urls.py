@@ -13,8 +13,9 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path("", include("cryat_api.urls")),
     path("api/v1/", include([
-        path("healt-check/", HealthCheckView.as_view(), name = "health_check"),
+        # path("healt-check/", HealthCheckView.as_view(), name = "health_check"),
         path("schema/", schema_view.with_ui("swagger", cache_timeout = 0), name = "swagger-schema"),
         path("admin/", admin.site.urls),
         ])),
