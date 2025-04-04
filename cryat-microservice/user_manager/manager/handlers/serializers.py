@@ -1,12 +1,14 @@
 from rest_framework import serializers
 
-from .models import Users
+from django.contrib.auth.hashers import make_password
+
+from ..models import Users
 
 class RegistrationSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=64, required=True)
     favorite_word = serializers.CharField(max_length=64, required=True)
-    password = serializers.CharField(max_length=64, required=True)
-    repeat_password = serializers.CharField(max_length=64, required=True)
+    password = serializers.CharField(min_length=6, max_length=64, required=True)
+    repeat_password = serializers.CharField(max_length=64, required=True, write_only=True)
 
     def validate(self, attrs):
         if attrs.get('password') != attrs.get('repeat_password'):
@@ -14,11 +16,9 @@ class RegistrationSerializer(serializers.Serializer):
         return attrs
     
     def create(self, validated_data):
-        validated_data.pop('repeat_password')
-        password = validated_data.pop('password')
+        validated_data.pop("repeat_password")
+        validated_data["password"] = make_password(validated_data["password"])
         user = Users.objects.create(**validated_data)
-        user.set_password(password)
-        user.save()
         return user
     
     def update(self, instance, validated_data):

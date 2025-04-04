@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from . import serializers
-from . import models
+from .. import models
 
     
 class Registration(APIView):
@@ -37,5 +37,5 @@ class Authenticate(CreateAPIView):
     """
     Универсальная аутентификация (по логину или номеру счета)
     """
-    ...
+    
     
