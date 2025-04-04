@@ -14,6 +14,7 @@ class Registration(APIView):
     """
     permission_classes = [AllowAny]
     serializer_class = serializers.RegistrationSerializer
+    http_method_names = ['post']
     
     def post(self, request):
         serializer = serializers.RegistrationSerializer(data=request.data)
